@@ -19,7 +19,7 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Close mobile menu on route change
+  // Close mobile menu whenever the route changes
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
@@ -228,7 +228,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Mobile Dropdown Menu Drawer */}
         {isMobileMenuOpen && (
           <div className="lg:hidden border-t border-gray-100 py-4 px-2 space-y-3 bg-white">
             {/* Mobile Search */}
