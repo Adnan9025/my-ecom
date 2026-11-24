@@ -1,16 +1,54 @@
-# React + Vite
+﻿# Luxora — Full-Stack E-Commerce Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack MERN e-commerce web application built for modern electronics retail, featuring a responsive customer storefront, cart & order management, Stripe payment integration, and a role-protected admin dashboard.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Customer Storefront:** Dynamic product catalog with live search, category filtering, multi-criteria sorting, image lightbox, and product detail pages.
+- **Cart & Checkout:** Persistent shopping cart (`CartContext`), order tracking, and Stripe checkout integration.
+- **Authentication & Role Protection:** JWT-based user registration/login and protected admin routes (`AdminRoute`).
+- **Admin Dashboard:** Inventory and product management (`/admin`, `/admin/products`).
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend:** React, Vite, React Router, Tailwind CSS, Framer Motion, Lucide Icons, Axios
+- **Backend:** Node.js, Express, MongoDB (Mongoose), JSON Web Tokens (JWT), Stripe API, CORS
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+~~~text
+my-ecom/
+├── src/                 # React frontend (pages, components, contexts, router, api)
+├── backend/             # Express API (controllers, models, routes, middleware)
+├── .env.example         # Frontend environment template
+└── backend/.env.example # Backend environment template
+~~~
+
+## Local Setup
+
+1. Clone the repository:
+
+~~~bash
+git clone https://github.com/Adnan9025/my-ecom.git
+cd my-ecom
+~~~
+
+2. Backend setup (copy `backend/.env.example` to `backend/.env` and add your `MONGO_URI`, `JWT_SECRET`, and `STRIPE_SECRET_KEY`):
+
+~~~bash
+cd backend
+npm install
+npm run dev
+~~~
+
+3. Frontend setup (from the project root, copy `.env.example` to `.env` if needed):
+
+~~~bash
+npm install
+npm run dev
+~~~
+
+## Environment Variables
+
+- **Frontend (`.env`):** `VITE_API_BASE_URL` (defaults to `http://localhost:5000/api` locally; set to your deployed Render API URL in production)
+- **Backend (`backend/.env`):** `PORT`, `MONGO_URI`, `JWT_SECRET`, `STRIPE_SECRET_KEY`
